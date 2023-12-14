@@ -1,5 +1,5 @@
 name = "spongetext"
-main = "src/index.js"
+main = "src/index.tsx"
 compatibility_date = "2023-12-06"
 
 # Variable bindings. These are arbitrary, plaintext strings (similar to environment variables)
@@ -7,6 +7,12 @@ compatibility_date = "2023-12-06"
 # Docs: https://developers.cloudflare.com/workers/platform/environment-variables
 # [vars]
 # MY_VARIABLE = "production_value"
+
+[vars]
+DISCORD_BOT_TOKEN = ""
+DISCORD_PUBLIC_KEY = ""
+
+
 
 # Bind a KV Namespace. Use KV as persistent storage for small key-value pairs.
 # Docs: https://developers.cloudflare.com/workers/runtime-apis/kv
