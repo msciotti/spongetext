@@ -26,7 +26,6 @@ export default {
 		}
 
 		const input = json.data.options[0]['value'];
-		console.log(json.data);
 		let newText = '';
 
 		for (let i = 0; i < input.length; i++) {
