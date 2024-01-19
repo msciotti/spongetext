@@ -25,7 +25,16 @@ export default {
 			return new Response(response);
 		}
 
-		const input = json.data.options[0]['value'];
+		let input = '';
+
+		if (!!json.data.options) {
+			input = json.data.options[0]['value'];
+		}
+		else if (!!json.data.target_id) {
+			const message_id = json.data.target_id;
+			input = json.data.resolved.messages[message_id].content
+		}
+
 		let newText = '';
 
 		for (let i = 0; i < input.length; i++) {
@@ -33,7 +42,7 @@ export default {
 		}
 
 		if (json.type === InteractionType.APPLICATION_COMMAND) {
-			if (json.data.name === 'spongetext') {
+			if (json.data.name === 'spongetext' || json.data.name === 'Spongify') {
 				response = {
 					type: InteractionResponseType.CHANNEL_MESSAGE_WITH_SOURCE,
 					data: {
